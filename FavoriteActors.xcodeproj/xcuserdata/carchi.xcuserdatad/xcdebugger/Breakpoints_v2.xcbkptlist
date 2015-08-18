@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FavoriteActors/TheMovieDB/Movie.swift"
-            timestampString = "461562779.549942"
+            timestampString = "461563364.534476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "init(coder:)"
             landmarkType = "5">
          </BreakpointContent>

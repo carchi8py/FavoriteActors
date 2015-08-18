@@ -19,6 +19,25 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
 
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
+        
+        // Unarchive the graph when the list is first shown
+        self.actors = NSKeyedUnarchiver.unarchiveObjectWithFile(actorsFilePath) as? [Person] ?? [Person]()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Archive the graph any time this list of actors is displayed.
+        NSKeyedArchiver.archiveRootObject(self.actors, toFile: actorsFilePath)
+    }
+    
+    
+    // MARK: - Saving the array. Helper.
+    
+    var actorsFilePath : String {
+        let manager = NSFileManager.defaultManager()
+        let url = manager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as! NSURL
+        return url.URLByAppendingPathComponent("actorsArray").path!
     }
     
     // Mark: - Actions
